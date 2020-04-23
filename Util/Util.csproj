@@ -45,7 +45,7 @@
     <Compile Include="CharAndStringExtensions.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="NumberToText.cs" />
-    <Compile Include="Observable.cs" />
+    <Compile Include="Publisher.cs" />
     <Compile Include="PrefsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderExtensions.cs" />

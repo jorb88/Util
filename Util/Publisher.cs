@@ -1,7 +1,7 @@
 using System;
 namespace Util
 {
-	public abstract class Observable
+	public abstract class Publisher
 	{
 		public event EventHandler StateChanged;
 		protected void Notify()
