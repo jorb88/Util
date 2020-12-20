@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 
@@ -82,6 +80,37 @@ namespace Util
 			foreach (char c in text)
 				if (!text.IsAlphaNumeric()) return false;
 			return true;
+		}
+		public static bool ContainsAlphabetics(this string text)
+		{
+			foreach (char c in text)
+			{
+				if (c.IsAlphabetic()) return true;
+			}
+			return false;
+		}
+		public static bool ContainsNumerics(this string text)
+		{
+			foreach (char c in text)
+			{
+				if (c.IsNumeric()) return true;
+			}
+			return false;
+		}
+		public static bool ContainsSymbols(this string text)
+		{
+			foreach (char c in text)
+			{
+				if (!c.IsAlphabetic() && !c.IsNumeric()) return true;
+			}
+			return false;
+		}
+		public static string Shorten(this string text, int length)
+		{
+			if (text.Length < length) return text;
+			text = text.Substring(0, length - 3);
+			text += "...";
+			return text;
 		}
 	}
 }
