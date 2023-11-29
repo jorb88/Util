@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Airport-Finder\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,14 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionExtensions.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="RandomNumber.cs" />
     <Compile Include="CharAndStringExtensions.cs" />
     <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="IUserInterface.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="MathExtentions.cs" />
     <Compile Include="NumberToText.cs" />
     <Compile Include="Observable.cs" />
     <Compile Include="PrefsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
     <Compile Include="ThreadManager.cs" />
+    <Compile Include="WinformExtensions.cs" />
+    <Compile Include="WinFormsExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

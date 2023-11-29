@@ -8,6 +8,10 @@ namespace Util
 {
 	public static class DateTimeExtensions
 	{
+		public static string ToModernDateTimeString(this DateTime dateTime)
+		{
+			return ToModernDateString(dateTime) + " " + To24HourTime(dateTime);
+		}
 		public static string ToModernDateString(this DateTime date)
 		{
 			string year = date.Year.ToString();
@@ -31,7 +35,6 @@ namespace Util
 				if (hr.Length == 2) return "0" + hr + minsec;
 				else return hr + minsec;
 			}
-
 			time = time.Replace(" PM", String.Empty);
 			minsec = time.Substring(ix + 1);
 			if (time.StartsWith("12:")) return time;
@@ -46,6 +49,17 @@ namespace Util
 				}
 			}
 			return "00:00:00";
+		}
+		public static string ToHoursAndMinutes(this double hours)
+		{
+			int h = (int)hours;
+			var m = hours - h;
+			int min = (int)(m * 60 + .5);
+			string hs = h.ToString();
+			if (hs.Length < 2) hs = " " + hs;
+			string hm = min.ToString();
+			if (hm.Length < 2) hm = "0" + hm;
+			return hs + ":" + hm;
 		}
 	}
 }

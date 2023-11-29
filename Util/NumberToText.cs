@@ -1,5 +1,4 @@
-﻿using System;
-namespace Util
+﻿namespace Util
 {
 	public static class NumberToText
 	{
