@@ -17,5 +17,35 @@ namespace Util
 			if (day.Length < 2) day = "0" + day;
 			return string.Format("{0}/{1}/{2}", year, month, day);
 		}
+		public static string To24HourTime(this DateTime datetime)
+		{
+			string time = datetime.ToLongTimeString();
+			int ix = time.IndexOf(":");
+			string hr = time.Substring(0, ix + 1);
+			string minsec = time.Substring(ix + 1);
+			if (time.EndsWith(" AM"))
+			{
+				time = time.Replace(" AM", String.Empty);
+				minsec = time.Substring(ix + 1);
+				if (hr == "12:") return "00:" + minsec;
+				if (hr.Length == 2) return "0" + hr + minsec;
+				else return hr + minsec;
+			}
+
+			time = time.Replace(" PM", String.Empty);
+			minsec = time.Substring(ix + 1);
+			if (time.StartsWith("12:")) return time;
+			string[] vals = {  "1:",  "2:",  "3:",  "4:",  "5:",  "6:",  "7:",  "8:",  "9:", "10:", "11:" };
+			string[] subs = { "13:", "14:", "15:", "16:", "17:", "18:", "19:", "20:", "21:", "22:", "23:" };
+			for (int i = 0; i < vals.Length; i++)
+			{
+				if (hr == vals[i])
+				{
+					hr = hr.Replace(vals[i], subs[i]);
+					return hr + minsec;
+				}
+			}
+			return "00:00:00";
+		}
 	}
 }
